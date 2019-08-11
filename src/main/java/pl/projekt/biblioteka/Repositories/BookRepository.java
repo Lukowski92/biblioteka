@@ -1,8 +1,6 @@
 package pl.projekt.biblioteka.Repositories;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import pl.projekt.biblioteka.Entity.Book;
 
 import javax.persistence.EntityManager;
@@ -17,7 +15,7 @@ public class BookRepository {
 
   @Transactional
   public List<Book> findAllBooks() {
-    List<Book> books = entityManager.createQuery("from Books", Book.class).getResultList();
+    List<Book> books = entityManager.createQuery("from Książki", Book.class).getResultList();
     return books;
   }
 
