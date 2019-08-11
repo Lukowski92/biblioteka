@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteka</title>
+</head>
+<body>
+
+
+<form th:action="@{/book/create}" method="POST" th:object="${book}">
+    <table>
+        <tr>
+            <td></td>
+            <td><input type="hidden" id="id" name="id" th:value="${book.id}"/></td>
+        </tr>
+        <tr>
+            <td>Tytuł:</td>
+            <td><input type="text" id="title" name="title" th:value="${book.title}"/></td>
+        </tr>
+        <tr>
+            <td>Kategoria:</td>
+            <td>
+                <select th:field="*{cathegory}">
+                    <option th:each="i : ${cathegory}" th:value="${i.id}" th:text="${i.label}"></option>
+                </select>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Zatwierdź</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
