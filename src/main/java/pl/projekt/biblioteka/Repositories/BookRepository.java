@@ -13,13 +13,15 @@ import java.util.List;
 @Repository
 public class BookRepository {
 
-  @PersistenceContext
-  private EntityManager entityManager;
+  @PersistenceContext private EntityManager entityManager;
 
   @Transactional
-  public List<Book> findAllUsers() {
-    List<Book> books = entityManager.createQuery("from User", Book.class).getResultList();
+  public List<Book> findAllBooks() {
+    List<Book> books = entityManager.createQuery("from Books", Book.class).getResultList();
     return books;
   }
 
+  public void addBook(Book book) {
+    entityManager.persist(book);
+  }
 }
