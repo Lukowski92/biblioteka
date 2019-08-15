@@ -1,8 +1,8 @@
-package pl.projekt.biblioteka.Repositories;
+package pl.projekt.biblioteka.infrastructure.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.projekt.biblioteka.Entity.Book;
+import pl.projekt.biblioteka.infrastructure.Entity.Book;
 
 
 import java.util.List;

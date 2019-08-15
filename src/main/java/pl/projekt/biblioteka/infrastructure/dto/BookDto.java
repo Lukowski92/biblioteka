@@ -1,4 +1,4 @@
-package pl.projekt.biblioteka.dto;
+package pl.projekt.biblioteka.infrastructure.dto;
 
 
 import lombok.*;

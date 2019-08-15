@@ -1,7 +1,7 @@
-package pl.projekt.biblioteka.Entity;
+package pl.projekt.biblioteka.infrastructure.Entity;
 
 import lombok.*;
-import pl.projekt.biblioteka.dto.BookDto;
+import pl.projekt.biblioteka.infrastructure.dto.BookDto;
 
 import javax.persistence.*;
 

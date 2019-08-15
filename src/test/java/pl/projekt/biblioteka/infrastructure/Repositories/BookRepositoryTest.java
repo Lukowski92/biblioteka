@@ -1,8 +1,6 @@
-package pl.projekt.biblioteka.Repositories;
+package pl.projekt.biblioteka.infrastructure.Repositories;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class BookRepositoryTest {
 

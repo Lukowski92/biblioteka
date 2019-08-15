@@ -1,14 +1,17 @@
-package pl.projekt.biblioteka.Services;
+package pl.projekt.biblioteka.domain;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
-import pl.projekt.biblioteka.Entity.Book;
-import pl.projekt.biblioteka.Repositories.BookRepository;
-import pl.projekt.biblioteka.dto.BookDto;
+import pl.projekt.biblioteka.infrastructure.Entity.Book;
+import pl.projekt.biblioteka.infrastructure.Repositories.BookRepository;
+import pl.projekt.biblioteka.infrastructure.dto.BookDto;
 
 @Service
 @RequiredArgsConstructor
 public class BookService {
+    @Autowired
     private final BookRepository bookRepository;
 
     public void createOrUpdate(BookDto dto) {

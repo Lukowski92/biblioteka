@@ -1,16 +1,15 @@
-package pl.projekt.biblioteka.controllers;
+package pl.projekt.biblioteka.infrastructure.web;
 
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.projekt.biblioteka.Repositories.BookRepository;
-import pl.projekt.biblioteka.Services.BookFinder;
-import pl.projekt.biblioteka.Services.BookService;
-import pl.projekt.biblioteka.Type.Cathegory;
-import pl.projekt.biblioteka.dto.BookDto;
-import pl.projekt.biblioteka.dto.CathegoryDto;
+import pl.projekt.biblioteka.domain.BookFinder;
+import pl.projekt.biblioteka.domain.BookService;
+import pl.projekt.biblioteka.infrastructure.Type.Cathegory;
+import pl.projekt.biblioteka.infrastructure.dto.BookDto;
+import pl.projekt.biblioteka.infrastructure.dto.CathegoryDto;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -32,8 +31,8 @@ public class BookControler {
 
     @GetMapping("/create")
     ModelAndView createBookView() {
-        ModelAndView modelAndView = new ModelAndView("createDoctor.html");
-        modelAndView.addObject("doctor", new BookDto());
+        ModelAndView modelAndView = new ModelAndView("createBook.html");
+        modelAndView.addObject("book", new BookDto());
         modelAndView.addObject("specializations",
                 Arrays.stream(Cathegory.values())
                         .map(spec -> new CathegoryDto(spec, spec.getLabel()))
