@@ -1,4 +1,4 @@
-package pl.projekt.biblioteka.infrastructure.Entity;
+package pl.projekt.biblioteka.infrastructure.entity;
 
 import lombok.*;
 import pl.projekt.biblioteka.infrastructure.dto.BookDto;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Ksiazki")
+@Table(name = "book")
 public class Book {
 
     @Id

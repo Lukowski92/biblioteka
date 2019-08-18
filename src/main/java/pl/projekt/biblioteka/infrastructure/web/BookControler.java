@@ -3,15 +3,18 @@ package pl.projekt.biblioteka.infrastructure.web;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.projekt.biblioteka.domain.BookFinder;
 import pl.projekt.biblioteka.domain.BookService;
-import pl.projekt.biblioteka.infrastructure.Type.Cathegory;
+import pl.projekt.biblioteka.infrastructure.entity.Book;
+import pl.projekt.biblioteka.infrastructure.type.Cathegory;
 import pl.projekt.biblioteka.infrastructure.dto.BookDto;
 import pl.projekt.biblioteka.infrastructure.dto.CathegoryDto;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
@@ -25,7 +28,7 @@ public class BookControler {
     ModelAndView getBook(@PathVariable String cathegory) {
         ModelAndView modelAndView = new ModelAndView("ksiazki.html");
         modelAndView.addObject("kategoria", cathegory);
-        modelAndView.addObject("ksiazka", bookFinder.findByCathegory(cathegory));
+        modelAndView.addObject("book", bookFinder.findByCathegory(cathegory));
         return modelAndView;
     }
 
@@ -45,6 +48,27 @@ public class BookControler {
         bookService.createOrUpdate(book);
 
         return "redirect:/";
+    }
+
+    @GetMapping("/delete")
+    String deleteDoctor(@RequestParam Long id) {
+        bookService.delete(id);
+
+        return "redirect:/";
+    }
+
+    // @PreAuthorize("hasRole('USER')")
+    @GetMapping("/edit")
+    ModelAndView editBook(@RequestParam Long id) {
+        ModelAndView modelAndView = new ModelAndView("createBook.html");
+        modelAndView.addObject("book", bookFinder.findById(id));
+        return modelAndView;
+    }
+
+    @RequestMapping("/all")
+    public String countsList(Model model) {
+        model.addAttribute("books", bookService.listAllBooks());
+        return "books";
     }
 
 }

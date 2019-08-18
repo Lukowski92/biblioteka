@@ -1,14 +1,13 @@
-package pl.projekt.biblioteka.infrastructure.Type;
+package pl.projekt.biblioteka.infrastructure.type;
 
 import lombok.Getter;
 import lombok.Setter;
 
 public enum Cathegory {
 
-    CRYMINAL("Kryminał"),
-    ROMANS("Romans"),
-    SCIENCE("Naukowa");
-
+    CRYMINAL("Kryminały"),
+    ROMANS("Romanse"),
+    SCIENCE("Naukowe");
 
     @Getter
     @Setter
@@ -18,6 +17,4 @@ public enum Cathegory {
 
         this.label = label;
     }
-
-
 }

@@ -1,4 +1,4 @@
-package pl.projekt.biblioteka.infrastructure.Repositories;
+package pl.projekt.biblioteka.infrastructure.repositories;
 
 import org.junit.Test;
 

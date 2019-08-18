@@ -6,11 +6,10 @@
 </head>
 <body>
 
-
 <form th:action="@{/book/create}" method="POST" th:object="${book}">
     <table>
         <tr>
-            <td></td>
+            <td>Nowa Książka</td>
             <td><input type="hidden" id="id" name="id" th:value="${book.id}"/></td>
         </tr>
         <tr>
@@ -20,13 +19,15 @@
         <tr>
             <td>Kategoria:</td>
             <td>
-                <select th:field="*{cathegory}">
-                    <option th:each="i : ${cathegory}" th:value="${i.id}" th:text="${i.label}"></option>
+                <select name="cathegory">
+                    <option th:each="cathegorOpt : ${T(pl.projekt.biblioteka.infrastructure.type.Cathegory).values()}"
+                            th:value="${cathegorOpt}"
+                            th:text="${cathegorOpt.label}">
+
+                    </option>
                 </select>
             </td>
         </tr>
-
-
         <tr>
             <td></td>
             <td>
@@ -35,6 +36,5 @@
         </tr>
     </table>
 </form>
-
 </body>
 </html>
