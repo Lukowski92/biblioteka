@@ -1,33 +1,34 @@
 package pl.projekt.biblioteka.infrastructure.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import pl.projekt.biblioteka.infrastructure.dto.BookDto;
+import pl.projekt.biblioteka.infrastructure.dto.UserDto;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Builder
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
 @Entity
-@Table(name = "users")
+@Table(name = "book")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(unique = true)
-    private String login;
-    private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<UserRole> roles;
+    @Column(name = "Imię")
+    private String firstName;
 
-    @OneToMany
-    private Set<BookReservation> wypozyczenia;
+    @Column(name = "Nazwisko")
+    private String lastName;
 
+    public UserDto toDto() {
+        return UserDto.builder()
+                .id(id)
+                .firstName(firstName)
+                .lasName(lastName)
+                .build();
+    }
 }
-

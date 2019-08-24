@@ -5,8 +5,11 @@ import org.springframework.stereotype.Repository;
 import pl.projekt.biblioteka.infrastructure.entity.User;
 
 
+import java.util.List;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User findByLogin(String login);
+    List<User> findByFirstName(String firstName);
+    List<User> findByLastName(String lastName);
 }
