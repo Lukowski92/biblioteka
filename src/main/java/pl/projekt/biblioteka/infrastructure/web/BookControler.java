@@ -46,14 +46,12 @@ public class BookControler {
     @PostMapping("/create")
     String createBook(@ModelAttribute BookDto book) {
         bookService.createOrUpdate(book);
-
         return "redirect:/";
     }
 
     @GetMapping("/delete")
     String deleteDoctor(@RequestParam Long id) {
         bookService.delete(id);
-
         return "redirect:/";
     }
 
@@ -65,10 +63,10 @@ public class BookControler {
         return modelAndView;
     }
 
-    @RequestMapping("/all")
-    public String countsList(Model model) {
-        model.addAttribute("books", bookService.listAllBooks());
-        return "books";
+    @GetMapping("/getall")
+    ModelAndView getAllBook() {
+        ModelAndView modelAndView = new ModelAndView("allBooks.html");
+        modelAndView.addObject("book", bookService.findAllBooks());
+        return modelAndView;
     }
-
 }

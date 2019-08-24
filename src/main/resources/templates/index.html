@@ -16,16 +16,6 @@ Witaj W bibliotece <span th:text="${todayDate}"/>
     <li><a th:href="@{/book/get/SCIENCE}">Naukowe</a></li>
     <li><a th:href="@{/book/get/CRYMINAL}">Kryminały</a></li>
 </ul>
-
-<tbody>
-<tr th:each="book : ${books}">
-    <td><span th:text="${book.title}"/></td>
-    <td><span th:text="${book.cathegory}"/></td>
-    <td><a th:href="@{../edit?id=} + ${book.id}">Edytuj</a></td>
-    <td><a th:href="@{../delete?id=} + ${book.id}">Usuń</a></td>
-</tr>
-</tbody>
-
-
+<a th:href="@{/book/getall}">Wszystkie książki</a>
 </body>
 </html>

@@ -5,19 +5,21 @@
     <title>Biblioteka</title>
 </head>
 <body>
-Książki z kategorii <span th:text="${cathegory}"/>
+<h1>Wszystkie książki</h1>
 
 <table>
     <thead>
     <tr>
         <th>Id</th>
         <th>Tytuł</th>
+        <th>Kategoria</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="book : ${book}">
         <td><span th:text="${book.id}"/></td>
         <td><span th:text="${book.title}"/></td>
+        <td><span th:text="${book.cathegory}"/></td>
         <td><a th:href="@{../edit?id=} + ${book.id}">Edytuj</a></td>
         <td><a th:href="@{../delete?id=} + ${book.id}">Usuń</a></td>
         <td><a th:href="@{/book/rent}">Wypożycz</a></td>
