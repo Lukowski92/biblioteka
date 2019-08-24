@@ -10,6 +10,7 @@ import pl.projekt.biblioteka.infrastructure.dto.BookDto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -31,9 +32,12 @@ public class BookService {
         bookRepository.deleteById(bookId);
     }
 
-    public List<Book> listAllBooks() {
-        List<Book> books = new ArrayList<>();
-        bookRepository.findAll().forEach(books::add);
-        return books;
+    public List<BookDto> findAllBooks() {
+        return bookRepository.findAll()
+                .stream()
+                .map(Book::toDto)
+                .collect(Collectors.toList());
     }
+
+
 }
