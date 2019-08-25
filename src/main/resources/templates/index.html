@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Biblioteka</title>
@@ -11,12 +11,18 @@ Witaj W bibliotece <span th:text="${todayDate}"/>
     <a th:href="@{/book/create}">Dodaj książkę</a>
 </div>
 
+<div>
+    <a th:href="@{/user/create}">Dodaj Użytkownika</a>
+</div>
 <ul>
     <li><a th:href="@{/book/get/ROMANS}">Romanse</a></li>
     <li><a th:href="@{/book/get/SCIENCE}">Naukowe</a></li>
     <li><a th:href="@{/book/get/CRYMINAL}">Kryminały</a></li>
 </ul>
 <a th:href="@{/book/getall}">Wszystkie książki</a>
+
+<a th:href="@{/user/getall}">Wszyscy użytkownicy</a>
+
 
 <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
 

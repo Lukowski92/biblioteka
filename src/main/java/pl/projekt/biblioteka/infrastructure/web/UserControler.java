@@ -27,7 +27,7 @@ public class UserControler {
 
     @GetMapping("/create")
     ModelAndView createUserView() {
-        ModelAndView modelAndView = new ModelAndView("createUser.html");//TODO createUser.html
+        ModelAndView modelAndView = new ModelAndView("createUser.html");
         modelAndView.addObject("user", new UserDto());
         return modelAndView;
     }
@@ -55,7 +55,7 @@ public class UserControler {
 
     @GetMapping("/getall")
     ModelAndView getAllUsers() {
-        ModelAndView modelAndView = new ModelAndView("allUsers.html");//TODO allUsers.html
+        ModelAndView modelAndView = new ModelAndView("allUsers.html");
         modelAndView.addObject("user", userService.findAllUsers());
         return modelAndView;
     }
