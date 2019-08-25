@@ -28,7 +28,7 @@ public class User {
         return UserDto.builder()
                 .id(id)
                 .firstName(firstName)
-                .lasName(lastName)
+                .lastName(lastName)
                 .build();
     }
 }

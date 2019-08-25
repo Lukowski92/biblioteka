@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteka</title>
+</head>
+<body>
+<h1>Wszyscy Użytkownicy</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${user}">
+        <td><span th:text="${user.id}"/></td>
+        <td><span th:text="${user.firstName}"/></td>
+        <td><span th:text="${user.lastName}"/></td>
+        <td><a th:href="@{../edit?id=} + ${user.id}">Edytuj</a></td>
+        <td><a th:href="@{../delete?id=} + ${user.id}">Usuń</a></td>
+        <td><a th:href="@{/user/add}">Dodaj użytkownika</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
