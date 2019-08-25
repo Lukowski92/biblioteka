@@ -18,9 +18,10 @@ Książki z kategorii <span th:text="${cathegory}"/>
     <tr th:each="book : ${book}">
         <td><span th:text="${book.id}"/></td>
         <td><span th:text="${book.title}"/></td>
-        <td><a sec:authorize="hasRole('ADMIN')", th:href="@{../edit?id=} + ${book.id}">Edytuj</a></td>
-        <td><a sec:authorize="hasRole('ADMIN')", th:href="@{../delete?id=} + ${book.id}">Usuń</a></td>
-        <td><a th:href="@{/book/rent}">Wypożycz</a></td>
+
+        <td><a  th:href="@{../edit?id=} + ${book.id}">Edytuj</a></td>
+        <td><a  th:href="@{../delete?id=} + ${book.id}">Usuń</a></td>
+        <td><a  th:href="@{../book/rent?id=}+${book.id}">Wypożycz</a></td>
     </tr>
     </tbody>
 </table>

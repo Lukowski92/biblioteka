@@ -2,6 +2,7 @@ package pl.projekt.biblioteka.infrastructure.web;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -55,7 +56,7 @@ public class BookControler {
         return "redirect:/";
     }
 
-    // @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/edit")
     ModelAndView editBook(@RequestParam Long id) {
         ModelAndView modelAndView = new ModelAndView("createBook.html");
