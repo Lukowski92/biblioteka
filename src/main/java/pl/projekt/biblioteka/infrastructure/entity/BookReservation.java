@@ -6,28 +6,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
-@Builder
+@Entity
+@Table(name = "reservations")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Getter
-@Entity
-@Table(name = "users")
-public class User {
-
+public class BookReservation {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Column(unique = true)
-    private String login;
-    private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<UserRole> roles;
+    private String reservedBy;
 
-    @OneToMany
-    private Set<BookReservation> wypozyczenia;
 
 }
-

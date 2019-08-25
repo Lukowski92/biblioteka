@@ -21,7 +21,7 @@ Książki z kategorii <span th:text="${cathegory}"/>
 
         <td><a  th:href="@{../edit?id=} + ${book.id}">Edytuj</a></td>
         <td><a  th:href="@{../delete?id=} + ${book.id}">Usuń</a></td>
-        <td><a  th:href="@{../book/rent?id=}+${book.id}">Wypożycz</a></td>
+        <td><a  th:href="@{../rent?id=}+${book.id}">Wypożycz</a></td>
     </tr>
     </tbody>
 </table>
