@@ -26,10 +26,10 @@ public class UserService {
   }
 
   public void delete(Long userId) {
-    userId.deleteById(userId);
+    userRepository.deleteById(userId);
   }
 
   public List<UserDto> findAllUsers() {
-    return UserDto.findAll().stream().map(User::toDto).collect(Collectors.toList());
+    return userRepository.findAll().stream().map(User::toDto).collect(Collectors.toList());
   }
 }

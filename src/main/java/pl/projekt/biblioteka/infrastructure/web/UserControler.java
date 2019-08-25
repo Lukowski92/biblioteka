@@ -6,13 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.projekt.biblioteka.domain.BookFinder;
-import pl.projekt.biblioteka.domain.BookService;
+import pl.projekt.biblioteka.domain.UserFinder;
+import pl.projekt.biblioteka.domain.UserService;
 import pl.projekt.biblioteka.infrastructure.dto.UserDto;
-import pl.projekt.biblioteka.infrastructure.entity.Book;
-import pl.projekt.biblioteka.infrastructure.type.Cathegory;
-import pl.projekt.biblioteka.infrastructure.dto.BookDto;
-import pl.projekt.biblioteka.infrastructure.dto.CathegoryDto;
+import pl.projekt.biblioteka.infrastructure.entity.User;
+
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +27,7 @@ public class UserControler {
 
     @GetMapping("/create")
     ModelAndView createUserView() {
-        ModelAndView modelAndView = new ModelAndView("createBook.html");
+        ModelAndView modelAndView = new ModelAndView("createUser.html");//TODO createUser.html
         modelAndView.addObject("user", new UserDto());
         return modelAndView;
     }
@@ -41,11 +40,12 @@ public class UserControler {
 
     @GetMapping("/delete")
     String deleteUser(@RequestParam Long id) {
-        bookService.delete(id);
+        userService.delete(id);
         return "redirect:/";
     }
 
-    // @PreAuthorize("hasRole('USER')")
+    //TODO @PreAuthorize("hasRole('USER')")
+
     @GetMapping("/edit")
     ModelAndView editUser(@RequestParam Long id) {
         ModelAndView modelAndView = new ModelAndView("createUser.html");
@@ -55,7 +55,7 @@ public class UserControler {
 
     @GetMapping("/getall")
     ModelAndView getAllUsers() {
-        ModelAndView modelAndView = new ModelAndView("allUsers.html");
+        ModelAndView modelAndView = new ModelAndView("allUsers.html");//TODO allUsers.html
         modelAndView.addObject("user", userService.findAllUsers());
         return modelAndView;
     }
