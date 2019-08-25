@@ -1,6 +1,5 @@
 package pl.projekt.biblioteka.infrastructure.dto;
 
-
 import lombok.*;
 
 @Setter
@@ -10,9 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class BookDto {
-    private Long id;
-    private String title;
-    private String cathegory;
-
-
+  private Long id;
+  private String title;
+  private String cathegory;
 }

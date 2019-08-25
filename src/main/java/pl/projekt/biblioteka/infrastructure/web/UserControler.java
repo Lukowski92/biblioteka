@@ -40,23 +40,23 @@ public class UserControler {
     }
 
     @GetMapping("/delete")
-    String deleteDoctor(@RequestParam Long id) {
+    String deleteUser(@RequestParam Long id) {
         bookService.delete(id);
         return "redirect:/";
     }
 
     // @PreAuthorize("hasRole('USER')")
     @GetMapping("/edit")
-    ModelAndView editBook(@RequestParam Long id) {
-        ModelAndView modelAndView = new ModelAndView("createBook.html");
-        modelAndView.addObject("book", bookFinder.findById(id));
+    ModelAndView editUser(@RequestParam Long id) {
+        ModelAndView modelAndView = new ModelAndView("createUser.html");
+        modelAndView.addObject("user", userFinder.findById(id));
         return modelAndView;
     }
 
     @GetMapping("/getall")
-    ModelAndView getAllBook() {
-        ModelAndView modelAndView = new ModelAndView("allBooks.html");
-        modelAndView.addObject("book", bookService.findAllBooks());
+    ModelAndView getAllUsers() {
+        ModelAndView modelAndView = new ModelAndView("allUsers.html");
+        modelAndView.addObject("user", userService.findAllUsers());
         return modelAndView;
     }
 }
