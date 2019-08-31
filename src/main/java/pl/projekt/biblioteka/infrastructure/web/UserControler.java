@@ -44,7 +44,7 @@ public class UserControler {
         return "redirect:/";
     }
 
-    //TODO @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
 
     @GetMapping("/edit")
     ModelAndView editUser(@RequestParam Long id) {

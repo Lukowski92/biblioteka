@@ -13,6 +13,7 @@
         <th>Id</th>
         <th>Imię</th>
         <th>Nazwisko</th>
+        <th>Login</th>
     </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
         <td><span th:text="${user.id}"/></td>
         <td><span th:text="${user.firstName}"/></td>
         <td><span th:text="${user.lastName}"/></td>
+        <td><span th:text="${user.login}"/></td>
         <td><a th:href="@{../user/edit?id=} + ${user.id}">Edytuj</a></td>
         <td><a th:href="@{../user/delete?id=} + ${user.id}">Usuń</a></td>
         <td><a th:href="@{/user/create}">Dodaj użytkownika</a></td>
